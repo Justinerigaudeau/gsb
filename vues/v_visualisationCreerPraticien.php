@@ -15,8 +15,11 @@
               <label for="txtLibelleHF">Prenom *</label>
               <input type="text" id="txtLibelleHF" name="prenom" size="30" maxlength="256" value="" required />
             </p>
+			<p>
+			<label for="txtLibelleHF">Spécialité *</label>
             <select id="specialite" name="specialite" onChange="loadPart('vues/selectVisiteurs.php', 'visiteur', this.value)" required>
-              <option value=""> -- Specialite --</option>
+              
+			  <option value=""> -- Specialite --</option>
               <?php
               $lesSpecialites=$pdo->getAllSpecialites();
               foreach($lesSpecialites as $lineSpecialite){
@@ -27,12 +30,16 @@
               }
               ?>
               </select>
+			</p>
+			<p>
+			<label for="txtLibelleHF">Visiteur *</label>
             <div id="visiteur">
+			
                <select name="visiteur" required>
                 <option value=""> -- Visiteur --</option>
               </select>
             </div>
-           
+			</p>
 
 			<div class="piedForm">
 			<p>
@@ -41,6 +48,7 @@
 				<input id="effacer" type="reset" value="Effacer" size="20" />
 			</p>
 			</div>
+			
           </fieldset>
       </div>
       </form>
