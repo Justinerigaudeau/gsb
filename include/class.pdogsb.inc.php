@@ -330,7 +330,7 @@ class PdoGsb{
 
 
 
-	/*public function getLesPraticiensDansMemeStructure($idVisiteur){
+	public function getLesPraticiensDansMemeStructure($idVisiteur){
 		$req ="select praticien.id,nom,prenom from praticien, lieu where lieu.id = praticien.idLieu and lieu.structure = '$idVisiteur'";
 		$res = PdoGsb::$monPdo->query($req);
 		$lesStructuresPraticiens =array();
@@ -346,7 +346,27 @@ class PdoGsb{
 
 		return $lesStructuresPraticiens;
 
-	}*/
+	}
+
+		public function CreerVisiteur($id,$idRole,$nom,$prenom,$login,$mdp,$photo,$adresse,$cp,$ville,$dateEmbauche){
+		$req = "INSERT INTO  visiteur VALUES ('$id','$idRole','$nom','$prenom','$login','$mdp','$photo','$adresse','$cp','$ville','$dateEmbauche')";		
+		PdoGsb::$monPdo->exec($req);
+	}
+	public function CreerPraticien($nom,$prenom,$idSpecialite, $idVisiteur){
+		$req = "INSERT INTO  praticien(`nom`, `prenom`, `idSpecialite`, `idVisiteur`) VALUES ('$nom','$prenom','$idSpecialite','$idVisiteur')";		
+		$req=PdoGsb::$monPdo->exec($req);
+		return($req>0);
+	}
+
+	public function getAllSpecialites(){
+	$req ="select id, libelle from specialite";
+	$res = PdoGsb::$monPdo->query($req);
+	$lesLignes = $res->fetchAll();
+	return $lesLignes; 
+	}
+
+
+
 /**
  * Retourne les informations d'une fiche de frais d'un visiteur pour un mois donné
  
@@ -374,6 +394,21 @@ class PdoGsb{
 		$req = "update ficheFrais set idEtat = '$etat', dateModif = now() 
 		where fichefrais.idvisiteur ='$idVisiteur' and fichefrais.mois = '$mois'";
 		PdoGsb::$monPdo->exec($req);
+	}
+
+
+	public function getVisiteursParSpecialite($idSpecialite){
+	$req ="select prefere.idVisiteur as id, visiteur.nom, visiteur.prenom from prefere, visiteur where prefere.idvisiteur = visiteur.id and prefere.idSpecialite like '$idSpecialite'";
+	$res = PdoGsb::$monPdo->query($req);
+	$lesLignes = $res->fetchAll();
+	return $lesLignes; 
+}
+
+	public function loginExistant($login){
+		$req = "select login from visiteur where login like '" .$login ."'";
+		$res = PdoGsb::$monPdo->query($req);
+		$leLogin = $res->fetch();
+		return $leLogin;
 	}
 }
 ?>

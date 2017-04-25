@@ -48,14 +48,15 @@
               <label for="txtMontantHF">Montant : </label>
               <input type="text" id="txtMontantHF" name="montant" size="10" maxlength="10" value="" />
             </p>
-          </fieldset>
-      </div>
-      <div class="piedForm">
+            <div class="piedForm">
       <p>
         <input id="ajouter" type="submit" value="Ajouter" size="20" />
         <input id="effacer" type="reset" value="Effacer" size="20" />
       </p> 
       </div>
+          </fieldset>
+      </div>
+      
         
       </form>
   </div>

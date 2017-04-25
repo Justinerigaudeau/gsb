@@ -1,7 +1,7 @@
 /* Styles des divisions principales de la page */
 body{
   background-color: #77AADD;
-	background-image: url(imgs/FONDGLOBAL.jpg);
+	background-image: url(imgages/gsb.png);
 	background-repeat: repeat-x;
   margin:0% 0%;
   padding : 0.6em;
@@ -10,15 +10,17 @@ body{
 }
 #page {
   background-color:white;
-  width : 65%;
+  width : 90%;
   margin : auto ;
   border : 0.2em solid black;
   padding : 0.1em;
+  min-height: 80%;
+
 }
 #entete{
-  background-color:rgb(72,198,236);
-	color : #980101;
-	border: solid 0.1em #980101;
+  background-color:rgb(159,177,183);
+	color : #FFF;
+	border: solid 0.1em #9fb1b7;
 	height: 154px;
 	padding: 0em;
 	border-collapse: separate;
@@ -45,7 +47,7 @@ body{
 	border: none;
 	padding: 1.3em;
 	background-color: white;
-	border-left :  groove 0.8em #980101;
+	border-left :  groove 0.8em #66a3d3;
   margin-top : 1.2em;
 	margin-left: 18%;
 /* permet de fixer une hauteur mini sur les navigateurs modernes */
@@ -126,15 +128,10 @@ ul#menuList a:hover {
   border : solid 0.1em #000;
   border-bottom-width:1px;
   margin-bottom : 0em;
-  width : 95%;
+  width : 100%;
 }
 .piedForm {
-  border-bottom-width : 0.1em;
-  border-left-width : 0.1em;
-  border-right-width : 0.1em;
-  border-top-width : 0em;
-  border-style : solid;
-  border-color : #000;
+  float: right;
   text-align:right ;
   width : 95%;
   margin-top:0em;
@@ -281,16 +278,17 @@ table.listeLegere th.libelle{
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	font-size: 14px;
 	font-weight: bold;
-	color: #1D2941;
+	color: #000;
 	text-decoration: none;
-	border : 1px solid #6988BE;
+	border : 1px solid #000;
 	padding-left: 25px;
-	background-color: #E9F1FE;
+	background-color: #66a3d3;
   height : 28px;
+  border-radius: 4px;
+
 }
 
 #contenu img {
   height : 28px;
   float : left;
-
 }

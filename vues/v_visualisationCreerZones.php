@@ -1,6 +1,8 @@
 ﻿   <form action="index.php?uc=visuResponsable&action=vueZones"" method="post">
+    <div id="contenu">
+   <h2>Création Zones</h2>
       <div class="corpsForm">
-         
+            
           <fieldset>
             <legend>Créer Zones
             </legend>
@@ -14,6 +16,6 @@
       </div>
         
       </form>
-  
+  </div>
         
       

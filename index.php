@@ -1,3 +1,33 @@
+<SCRIPT type="text/javascript">
+      function getXHR() // création d'un objet qui récupere une valeur
+      {
+              var xhr=null;
+              
+              if (window.XMLHttpRequest) { // selon le navigateur
+                xhr = new XMLHttpRequest();
+              }
+              else if (window.ActiveXObject) {
+                xhr = new ActiveXObject("Microsoft.XMLHTTP");
+              }
+              
+              return xhr;
+      }
+      
+      function loadPart(fileName, divId, id = null){
+        var xhr = getXHR();
+        xhr.open('POST',fileName,true); // true : asynchronisation
+        xhr.onreadystatechange = function(){ //fonction executée qd le statut change
+          if (xhr.readyState == 4){ //statut = 4 quand on a recu les donnees
+            if (document.getElementById){
+              document.getElementById(divId).innerHTML = xhr.responseText;
+            }
+          }
+        }
+        xhr.setRequestHeader('Content-type','application/x-www-form-urlencoded');
+        var data = 'id='+id;
+        xhr.send(data);
+      }
+    </SCRIPT>
 <?php
 require_once("include/fct.inc.php");
 require_once ("include/class.pdogsb.inc.php");
