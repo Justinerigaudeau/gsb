@@ -4,10 +4,10 @@
       <div class="corpsForm">
             
           <fieldset>
-            <legend>Créer Zones
+            <legend>Créer Zone
             </legend>
             <p>
-              <label for="txtZone">Zones:  </label>
+              <label for="txtZone">Zone:  </label>
               <input type="text" id="txtZone" name="libelle" size="30" value="" />
               <input id="ajouter" type="submit" value="Ajouter" size="20" />
               <input id="effacer" type="reset" value="Effacer" size="20" />
