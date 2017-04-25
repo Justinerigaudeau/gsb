@@ -410,5 +410,14 @@ class PdoGsb{
 		$leLogin = $res->fetch();
 		return $leLogin;
 	}
+
+	public function getRole($idVisiteur){
+		$req="select idRole from visiteur where id like '$idVisiteur'";
+		$res= PdoGsb::$monPdo->query($req);
+		$res=$res->fetch();
+		return $res['idRole'];
+	}
 }
+
+
 ?>
