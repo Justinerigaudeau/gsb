@@ -15,7 +15,10 @@
  * @link       http://www.php.net/manual/fr/book.pdo.php
  */
 
-class PdoGsb{   		
+class PdoGsb{  
+		//private static $serveur='mysql:host=172.21.105.1'; 
+		//private static $user='valentin' ;    		
+      	//private static $mdp='root' ;			
       	private static $serveur='mysql:host=localhost';
       	private static $bdd='dbname=gsbppe';   		
       	private static $user='root' ;    		
@@ -348,7 +351,7 @@ class PdoGsb{
 
 	}
 
-		public function CreerVisiteur($id,$idRole,$nom,$prenom,$login,$mdp,$photo,$adresse,$cp,$ville,$dateEmbauche){
+	public function CreerVisiteur($id,$idRole,$nom,$prenom,$login,$mdp,$photo,$adresse,$cp,$ville,$dateEmbauche){
 		$req = "INSERT INTO  visiteur VALUES ('$id','$idRole','$nom','$prenom','$login','$mdp','$photo','$adresse','$cp','$ville','$dateEmbauche')";		
 		PdoGsb::$monPdo->exec($req);
 	}
