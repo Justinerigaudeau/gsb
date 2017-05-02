@@ -16,6 +16,7 @@
  */
 
 class PdoGsb{   		
+		//private static $serveur='mysql:host=172.21.105.1';
       	private static $serveur='mysql:host=localhost';
       	private static $bdd='dbname=gsbppe';   		
       	private static $user='root' ;    		
