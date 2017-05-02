@@ -22,7 +22,7 @@ class PdoGsb{
       	//private static $serveur='mysql:host=localhost';
       	private static $bdd='dbname=gsbppe';   		
       	//private static $user='root' ;    		
-      	private static $mdp='' ;	
+      	//private static $mdp='' ;	
 		private static $monPdo;
 		private static $monPdoGsb=null;
 /**
