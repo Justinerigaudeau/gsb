@@ -18,7 +18,7 @@
 class PdoGsb{   		
 	private static $serveur='mysql:host=172.21.105.1';
       	//private static $serveur='mysql:host=localhost';
-      	private static $bdd='dbname=gsbJustine';   		
+      	private static $bdd='dbname=gsbtest';   		
       	private static $user='valentin' ;    		
       	private static $mdp='root' ;	
 		private static $monPdo;
@@ -272,21 +272,23 @@ class PdoGsb{
 	}
 
 	public function getLesPraticiensParVisiteur($idVisiteur){
-		$req = "select praticien.id, praticien.nom, praticien.prenom from praticien where praticien.idvisiteur = '$idVisiteur'";
+		//$req = "select praticien.id, praticien.nom, praticien.prenom from praticien where praticien.idvisiteur = '$idVisiteur'";
+		$req ="select idPraticiens, nom from confier, praticien where praticien.id = confier.idPraticiens and confier.idVisiteur = '$idVisiteur'";
 		$res = PdoGsb::$monPdo->query($req);
 		$lesPraticiens =array();
 		$laLigne = $res->fetch();
 		while($laLigne != null)	{
 			$lesPraticiens[]=array(
-			"id"=>$laLigne['id'],
-		     "nom"=>$laLigne['nom'],
-		     "prenom"=>$laLigne['prenom']
+			"idPraticiens"=>$laLigne['idPraticiens'],
+		     "nom"=>$laLigne['nom']
+		     
              );
 			$laLigne = $res->fetch(); 		
 		}
 		return $lesPraticiens;
 	}
 
+	
 	public function getLesVisiteursDanslaMemeZone($idVisiteur){
 		$req = "select idVisiteur, nom, prenom, ville from affecter, visiteur where affecter.idVisiteur=visiteur.id and idZone =(select idZone from affecter where idVisiteur = '$idVisiteur')";
 		$res = PdoGsb::$monPdo->query($req);

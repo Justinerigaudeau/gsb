@@ -7,14 +7,19 @@
       <p>
    
         <label for="lstPrati" accesskey="n">Praticiens En Charge: </label>
-        <select id="lstPrati" name="lstPrati">
+       
             <?php
       foreach ($lesPraticiens as $unPraticien)
       {
-        ?>
-        <option value="<?=$unPraticien['id']?>"><?=$unPraticien['nom']?> <?=$unPraticien['prenom']?></option>
-        <?php 
-      
+	  $idPraticiens = $unPraticien['idPraticiens'];
+	  $nom = $unPraticien['nom'];
+	  ?> 
+	   <tr>
+	    <td> <?php echo $nom ?></td>
+						
+	</tr>
+       
+     <?php 
       }
            
        ?>    
@@ -25,6 +30,5 @@
   </form>
 
 
-  
         
       
